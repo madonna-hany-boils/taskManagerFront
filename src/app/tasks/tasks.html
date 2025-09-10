@@ -1,0 +1,71 @@
+<div class="tasks-container">
+  <h1 class="title">✨ My Tasks</h1>
+
+  <!-- Add/Edit Task Form -->
+<div class="task-form">
+  <h2>{{ isEditing ? '✏️ Edit Task' : '➕ Add New Task' }}</h2>
+
+  <input type="text" placeholder="Enter task title..." [(ngModel)]="newTask.title" />
+  <div class="error-message" *ngIf="titleError">{{ titleError }}</div>
+
+  <textarea placeholder="Enter description..." [(ngModel)]="newTask.description"></textarea>
+  <div class="error-message " *ngIf="descriptionError">{{ descriptionError }}</div>
+
+  <select [(ngModel)]="newTask.status">
+    <option [value]="1">⏳ Pending</option>
+    <option [value]="2">✅ Completed</option>
+  </select>
+
+  <div class="form-actions">
+    <button (click)="isEditing ? updateTask() : addTask()">
+      {{ isEditing ? 'Update Task' : 'Add Task' }}
+    </button>
+  </div>
+
+  <div class="success-message" *ngIf="successMessage">{{ successMessage }}</div>
+</div>
+
+
+  <!-- Filter -->
+ <!-- Filter -->
+<div class="filter-bar">
+  <label>Filter:</label>
+  <label>
+    <input type="radio" name="statusFilter" value="" (change)="filterTasks($event)" checked> All
+  </label>
+  <label>
+    <input type="radio" name="statusFilter" value="1" (change)="filterTasks($event)"> Pending
+  </label>
+  <label>
+    <input type="radio" name="statusFilter" value="2" (change)="filterTasks($event)"> Completed
+  </label>
+</div>
+
+<div *ngIf="loading" class="loading">Loading tasks...</div>
+<div class="tasks-grid" *ngIf="!loading">
+ 
+</div>
+
+  <!-- Tasks Grid -->
+  <div class="tasks-grid">
+    <div class="task-card" *ngFor="let task of filteredTasks">
+      <div class="task-header">
+        <h3>{{ task.title }}</h3>
+        <span class="badge" [ngClass]="{
+          'pending': task.status === 1,
+          'completed': task.status === 2
+        }">
+          {{ task.status === 1 ? '⏳ Pending' : '✅ Completed' }}
+        </span>
+      </div>
+
+      <p class="description">{{ task.description }}</p>
+
+      <div class="task-actions">
+        <button class="edit-btn" (click)="editTask(task)">✏️ Edit</button>
+        <button class="delete-btn" (click)="deleteTask(task.id)">🗑 Delete</button>
+        <button class="done-btn" *ngIf="task.status === 1" (click)="markAsDone(task.id)">✔️ Mark Done</button>
+      </div>
+    </div>
+  </div>
+</div>
