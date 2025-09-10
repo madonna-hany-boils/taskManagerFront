@@ -1,59 +1,74 @@
-# SeviceBooking
+Task Manager Frontend (Angular)
+📌 Overview
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
+This is the frontend of the Task Manager App, built with Angular.
+It communicates with the ASP.NET Core Web API backend to allow users to:
 
-## Development server
+Register / Login
 
-To start a local development server, run:
+Manage tasks (Add, Edit, Delete, Mark as Done)
 
-```bash
+Filter tasks (All, Pending, Completed)
+
+Use a responsive and user-friendly UI
+
+🚀 Features
+
+🔑 User Authentication (Register/Login)
+
+📝 Task Management (Add, Edit, Delete, Mark as Done)
+
+🔎 Task Filtering (All, Pending, Completed)
+
+📱 Responsive design for desktop & mobile
+
+✅ Input validation for Title & Description
+
+⚡ Instant updates without page refresh
+
+📂 Prerequisites
+
+Make sure you have installed:
+
+Node.js
+ (LTS version recommended)
+
+Angular CLI
+
+⚙️ Installation & Running
+
+Clone the repository:
+
+git clone https://github.com/madonna-hany-boils/taskManagerFront.git
+cd taskManagerFront
+
+
+Install dependencies:
+
+npm install
+
+
+Run the Angular app:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+Open your browser at:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+http://localhost:4200
 
-```bash
-ng generate component component-name
-```
+🔗 Backend
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Make sure the backend API (ASP.NET Core Web API) is running.
+By default, the app connects to:
 
-```bash
-ng generate --help
-```
+http://taskymanager.runasp.net/api
 
-## Building
 
-To build the project run:
+You can change this in the Angular service file if needed.
 
-```bash
-ng build
-```
+📄 Notes
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+First register a user via the Register page.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Then login to manage your tasks.
